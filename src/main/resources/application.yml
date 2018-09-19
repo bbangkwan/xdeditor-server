@@ -1,0 +1,24 @@
+#server.tomcat.accesslog.enabled=true 옵션을 주게 되면 logging 된다.
+server:
+  tomcat:
+    accesslog:
+      enabled: false
+      pattern: "%{yyyy-MM-dd HH:mm:ss}t\t%s\t%r\t%{User-Agent}i\t%{Referer}i\t%{X-Forwarded-For}i\t%b"
+      suffix: .log
+    basedir: /apps/xdeditor/log
+
+---
+spring:
+  profiles: local
+
+---
+spring:
+  profiles: dev
+
+  testValue: "dev"
+---
+spring:
+  profiles: prod
+
+  testValue: "prod"
+---
